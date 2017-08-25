@@ -1,2 +1,5 @@
 <h1>I AM index.html.erb</h1>
-<p>THSI IS WHERE BLOG CAN BE FIND</p>
+<p><%@posts.each do |a|%>
+<%= link_to a.title%><%= link_to "Edit Post",edit_post_path(a.id)%><%= link_to "Destroy Post",post_path(a.id), :confirm => "BHAI SACHI DELETE KARNA HAIN?",method: :delete %><br>
+<%end%></p>
+<%= link_to "Add Post",new_post_path%>
