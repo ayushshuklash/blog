@@ -1,5 +1,18 @@
 <h1>I AM index.html.erb</h1>
-<p><%@posts.each do |a|%>
-<%= link_to a.title%><%= link_to "Edit Post",edit_post_path(a.id)%><%= link_to "Destroy Post",post_path(a.id), :confirm => "BHAI SACHI DELETE KARNA HAIN?",method: :delete %><br>
-<%end%></p>
+<div>
+  <%@posts.each do |post|%>
+  <ul>
+    <li>
+      <span><%= link_to post.title, post_path(post.id)%>&nbsp;</span>
+      <span><%= link_to "Edit Post",edit_post_path(post.id)%>&nbsp;</span>
+      <span>
+        <%= link_to "Destroy Post",post_path(post.id), :confirm => "BHAI SACHI DELETE KARNA HAIN?",method: :delete %>
+      </span>
+    </li>
+  </ul>
+
+  <%end%>
+</div>
+<br>
+<br>
 <%= link_to "Add Post",new_post_path%>
